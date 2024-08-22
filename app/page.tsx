@@ -1,17 +1,21 @@
 import Section_5_Tabs from "@/components/section-5-tabs";
 import Section_6_Tabs from "@/components/section-6-tabs";
+import Section_7_Accordion from "@/components/section-7-accordion";
 import LogoSymbol from "@/components/ui/logo-symbol";
 import LogoType from "@/components/ui/logo-type";
 import {
+  ActionIcon,
   Box,
   Button,
   Container,
+  Fieldset,
   Group,
   Stack,
   Text,
+  TextInput,
   Title,
 } from "@mantine/core";
-import { IconArrowRight } from "@tabler/icons-react";
+import { IconArrowRight, IconSearch } from "@tabler/icons-react";
 
 function Navbar() {
   return (
@@ -155,6 +159,27 @@ function Section_6() {
   );
 }
 
+function Section_7() {
+  return (
+    <Box className="flex min-h-screen flex-col items-stretch justify-center p-4">
+      <Stack>
+        <Title ta="center">Frequently Asked Questions</Title>
+        <form>
+          <Fieldset variant="unstyled">
+            <Group wrap="nowrap">
+              <TextInput flex={1} />
+              <ActionIcon variant="transparent">
+                <IconSearch />
+              </ActionIcon>
+            </Group>
+          </Fieldset>
+        </form>
+        <Section_7_Accordion />
+      </Stack>
+    </Box>
+  );
+}
+
 export default function RootPage() {
   return (
     <Container>
@@ -165,6 +190,7 @@ export default function RootPage() {
       <Section_4 />
       <Section_5 />
       <Section_6 />
+      <Section_7 />
     </Container>
   );
 }

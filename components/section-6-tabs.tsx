@@ -45,11 +45,15 @@ function Features() {
       </Group>
       <Group wrap="nowrap" gap="xs">
         <IconFileSpreadsheet size={20} />
-        <Text size="sm">Excel/CSV Contact Import</Text>
+        <Text size="sm">
+          Excel/CSV <br /> Contact Import
+        </Text>
       </Group>
       <Group wrap="nowrap" gap="xs">
         <IconRefresh size={20} />
-        <Text size="sm">Google Contact Sync</Text>
+        <Text size="sm">
+          Google Contact <br /> Sync
+        </Text>
       </Group>
     </Stack>
   );
@@ -65,7 +69,7 @@ function Starter() {
           pesan otomatis, siaran pesan, dan manajemen kontak yang efisien.
           Dapatkan integrasi yang membantu dan sinkronisasi kontak WhatsApp.
         </Text>
-        <Title order={2}>Gratis</Title>
+        <Title order={3}>Gratis</Title>
         <Button>Start Now</Button>
         <Features />
       </Stack>
@@ -84,7 +88,7 @@ function Basic() {
           Rasakan kenyamanan integrasi yang luas dengan sinkronisasi kontak
           Google dan WhatsApp.
         </Text>
-        <Title order={2}>
+        <Title order={3}>
           Rp65.000
           <Text size="xs" span>
             /bulan
@@ -108,7 +112,7 @@ function Premium() {
           tanpa batasan. Aktifkan integrasi yang luas dengan sinkronisasi kontak
           Google dan WhatsApp.
         </Text>
-        <Title order={2}>
+        <Title order={3}>
           Rp76.000
           <Text size="xs" span>
             /bulan
@@ -132,7 +136,7 @@ function Pro() {
           yang tidak terbatas. Aktifkan integrasi yang luas dengan sinkronisasi
           kontak Google dan WhatsApp.
         </Text>
-        <Title order={2}>
+        <Title order={3}>
           Rp86.000
           <Text size="xs" span>
             /bulan
