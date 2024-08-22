@@ -2,6 +2,7 @@
 
 import {
   ActionIcon,
+  Anchor,
   Box,
   Button,
   Card,
@@ -11,15 +12,18 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMenu2 } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 import LogoSymbol from "./ui/logo-symbol";
 import LogoType from "./ui/logo-type";
 
 export default function Navbar() {
+  const router = useRouter();
   const [opened, { toggle }] = useDisclosure();
   const logo = (
-    <Group wrap="nowrap" gap="xs">
+    <Group pos="relative" wrap="nowrap" gap="xs">
       <LogoSymbol size={24} />
       <LogoType size={20} />
+      <Anchor href="/" pos="absolute" inset={0} />
     </Group>
   );
   const items = (
@@ -36,12 +40,12 @@ export default function Navbar() {
       <Button variant="transparent" size="compact-sm" color="dark">
         Blog
       </Button>
-      <Button>Signin</Button>
+      <Button onClick={() => router.push("/account/signin")}>Sign In</Button>
     </>
   );
   return (
     <>
-      <Box className="sticky top-2 z-10 bg-white md:hidden">
+      <Box className="sticky top-2 z-10 md:hidden">
         <Card padding="xs">
           <Stack>
             <Group justify="space-between">

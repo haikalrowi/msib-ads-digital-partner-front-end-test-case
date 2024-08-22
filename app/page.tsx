@@ -122,11 +122,11 @@ function Section_5() {
           Connected Communication!&quot;
         </Title>
         <Box className="flex gap-4 max-md:flex-col">
-          <Box className="flex flex-[20%] items-center justify-center">
+          <Box className="flex flex-[1] items-center justify-center">
             {<Box bg="blue" w={120} h={120} />}
             {/* <Image radius="md" alt="" /> */}
           </Box>
-          <Box className="flex-[80%]" h={192}>
+          <Box className="flex-[2] md:h-48 lg:h-32">
             <Section_5_Tabs />
           </Box>
         </Box>
