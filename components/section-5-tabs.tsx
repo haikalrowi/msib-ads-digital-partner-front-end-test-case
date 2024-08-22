@@ -5,7 +5,7 @@ import { Tabs, Text } from "@mantine/core";
 export default function Section_5_Tabs() {
   return (
     <Tabs variant="pills" defaultValue="bisnis-dan-pemasasran">
-      <Tabs.List pb={8}>
+      <Tabs.List mb={8}>
         <Tabs.Tab value="bisnis-dan-pemasasran">Bisnis dan Pemasaran</Tabs.Tab>
         <Tabs.Tab value="komersial-dan-penjualan">
           Komersial dan Penjualan
