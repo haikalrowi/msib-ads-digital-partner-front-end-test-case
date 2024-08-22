@@ -1,8 +1,17 @@
 import "@/styles/globals.css";
 import "@mantine/core/styles.css";
 
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { ColorSchemeScript, createTheme, MantineProvider } from "@mantine/core";
 import { Metadata } from "next";
+import { Inter, Lexend_Deca } from "next/font/google";
+
+const lexendDeca = Lexend_Deca({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+
+const theme = createTheme({
+  fontFamily: `${inter.style.fontFamily}, sans-serif`,
+  headings: { fontFamily: `${lexendDeca.style.fontFamily}, sans-serif` },
+});
 
 export const metadata: Metadata = {
   title: "My Mantine app",
@@ -20,7 +29,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>
   );
