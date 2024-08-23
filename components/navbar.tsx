@@ -1,9 +1,9 @@
 "use client";
 
 import {
-  ActionIcon,
   Anchor,
   Box,
+  Burger,
   Button,
   Card,
   Collapse,
@@ -11,7 +11,6 @@ import {
   Stack,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconMenu2 } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import LogoSymbol from "./ui/logo-symbol";
 import LogoType from "./ui/logo-type";
@@ -50,9 +49,7 @@ export default function Navbar() {
           <Stack>
             <Group justify="space-between">
               {logo}
-              <ActionIcon variant="transparent" onClick={toggle}>
-                <IconMenu2 />
-              </ActionIcon>
+              <Burger opened={opened} onClick={toggle} />
             </Group>
             <Collapse in={opened}>
               <Stack>{items}</Stack>

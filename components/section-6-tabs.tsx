@@ -12,11 +12,11 @@ import {
 } from "@mantine/core";
 import {
   IconAddressBook,
-  IconCast,
+  IconBroadcast,
   IconDevices,
   IconFileSpreadsheet,
-  IconGraph,
   IconRefresh,
+  IconSpeakerphone,
   IconStopwatch,
 } from "@tabler/icons-react";
 
@@ -28,11 +28,11 @@ function Features() {
         <Text size="sm">100 Auto reply</Text>
       </Group>
       <Group wrap="nowrap" gap="xs">
-        <IconCast size={20} />
+        <IconBroadcast size={20} />
         <Text size="sm">500 Broadcast</Text>
       </Group>
       <Group wrap="nowrap" gap="xs">
-        <IconGraph size={20} />
+        <IconSpeakerphone size={20} />
         <Text size="sm">50 Campaign</Text>
       </Group>
       <Group wrap="nowrap" gap="xs">
