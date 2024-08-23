@@ -1,6 +1,6 @@
 import CsrfToken from "@/components/account/csrfToken";
-import LogoSymbol from "@/components/ui/logo-symbol";
-import LogoType from "@/components/ui/logo-type";
+import Logo from "@/components/ui/logo";
+import LogoDark from "@/components/ui/logo-dark";
 import { authOptions } from "@/lib/next-auth";
 import {
   Anchor,
@@ -35,8 +35,12 @@ export default async function SignInAccountPage({
     <Container>
       <Box className="flex min-h-screen items-center justify-center gap-4 py-4 max-md:flex-col">
         <Group className="relative md:fixed md:left-4 md:top-4">
-          <LogoSymbol size={32} />
-          <LogoType size={24} />
+          <Box darkHidden>
+            <Logo />
+          </Box>
+          <Box lightHidden>
+            <LogoDark />
+          </Box>
           <Anchor href="/" pos="absolute" inset={0} />
         </Group>
         <Box className="flex items-center justify-center max-md:hidden md:flex-[1]">

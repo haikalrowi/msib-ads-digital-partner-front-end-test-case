@@ -17,7 +17,7 @@ import {
 
 function Paket() {
   return (
-    <Card className="flex-[2]">
+    <Card className="flex-[2]" shadow="md">
       <Stack>
         <Box className="flex gap-4 max-lg:flex-col">
           <Stack className="flex-1">
@@ -80,11 +80,11 @@ function Paket() {
 
 function PesanTerakhir() {
   return (
-    <Card className="flex-[1]">
+    <Card className="flex-[1]" shadow="md">
       <Stack>
         <Title order={5}>Pesan terakhir</Title>
         <Stack>
-          <Card bg="gray.1" padding="xs">
+          <Card padding="xs" withBorder>
             <Group>
               <Avatar size="sm" />
               <Box flex={1}>
@@ -96,7 +96,7 @@ function PesanTerakhir() {
               <Badge size="xs">Terkirim</Badge>
             </Group>
           </Card>
-          <Card bg="gray.1" padding="xs">
+          <Card padding="xs" withBorder>
             <Group>
               <Avatar size="sm" />
               <Box flex={1}>
@@ -214,7 +214,7 @@ const data_2 = [
 
 function Analitik() {
   return (
-    <Card className="flex-1">
+    <Card shadow="md">
       <Stack>
         <Title order={5}>Analitik</Title>
         <Box className="flex gap-4 max-lg:flex-col">

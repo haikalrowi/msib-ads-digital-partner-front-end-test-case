@@ -152,7 +152,7 @@ function Pro() {
 export default function Section_6_Tabs() {
   return (
     <Tabs variant="pills" defaultValue="monthly">
-      <Tabs.List justify="center">
+      <Tabs.List mb="md" justify="center">
         <Tabs.Tab value="monthly">Monthly</Tabs.Tab>
         <Tabs.Tab value="yearly">Yearly</Tabs.Tab>
       </Tabs.List>

@@ -5,6 +5,8 @@ import {
   AppShell,
   Avatar,
   Burger,
+  Button,
+  Center,
   Container,
   Group,
   HoverCard,
@@ -13,37 +15,54 @@ import {
   Text,
   ThemeIcon,
   Title,
+  useMantineColorScheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconBell, IconCalendar, IconSettings } from "@tabler/icons-react";
-import LogoSymbol from "../ui/logo-symbol";
-import LogoType from "../ui/logo-type";
+import {
+  IconBell,
+  IconCalendar,
+  IconMoon,
+  IconSettings,
+} from "@tabler/icons-react";
+import Logo from "../ui/logo";
+import LogoDark from "../ui/logo-dark";
 import Navbar from "./navbar";
 import SignOut from "./signout";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [opened, { toggle, close }] = useDisclosure();
+  const { toggleColorScheme } = useMantineColorScheme();
   const newVariable = (
     <Group flex={1}>
-      <Burger hiddenFrom="sm" size="sm" opened={opened} onClick={toggle} />
+      <Burger
+        hiddenFrom="sm"
+        flex={0}
+        size="sm"
+        opened={opened}
+        onClick={toggle}
+      />
       <Group flex={1} justify="end">
-        <ActionIcon variant="white" radius="xl">
+        <ActionIcon variant="default" radius="xl" onClick={toggleColorScheme}>
+          <IconMoon size={20} />
+        </ActionIcon>
+        <ActionIcon variant="default" radius="xl">
           <IconBell size={20} />
         </ActionIcon>
         <HoverCard>
           <HoverCard.Target>
-            <Group className="rounded-full" p={4} bg="white" gap="xs">
-              <Text px="md" visibleFrom="sm" size="sm">
-                Haikal Rowi
-              </Text>
-              <Avatar size="sm" />
-            </Group>
+            <Button
+              variant="default"
+              radius="xl"
+              rightSection={<Avatar size="sm" />}
+            >
+              Haikal Rowi
+            </Button>
           </HoverCard.Target>
           <HoverCard.Dropdown>
             <SignOut />
           </HoverCard.Dropdown>
         </HoverCard>
-        <ActionIcon variant="white" radius="xl">
+        <ActionIcon variant="default" radius="xl">
           <IconSettings size={20} />
         </ActionIcon>
       </Group>
@@ -69,12 +88,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </Group>
     </Group>
   );
-  const logo = (
-    <Group justify="center" gap="xs">
-      <LogoSymbol size={24} />
-      <LogoType size={24} />
-    </Group>
-  );
   return (
     <AppShell
       layout="alt"
@@ -86,7 +99,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }}
       padding="md"
     >
-      <AppShell.Header bg="gray.1" withBorder={false}>
+      <AppShell.Header withBorder={false}>
         <Container h="100%">
           <Stack h="100%">
             {newVariable}
@@ -95,12 +108,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </Container>
       </AppShell.Header>
       <AppShell.Navbar p="md" onClick={close}>
-        <AppShell.Section>{logo}</AppShell.Section>
+        <AppShell.Section>
+          <Center darkHidden>
+            <Logo />
+          </Center>
+          <Center lightHidden>
+            <LogoDark />
+          </Center>
+        </AppShell.Section>
         <AppShell.Section mt="md" component={ScrollArea} grow>
           <Navbar />
         </AppShell.Section>
       </AppShell.Navbar>
-      <AppShell.Main bg="gray.1">
+      <AppShell.Main>
         <Container>{children}</Container>
       </AppShell.Main>
     </AppShell>
