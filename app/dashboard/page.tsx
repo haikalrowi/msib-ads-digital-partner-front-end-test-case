@@ -27,7 +27,9 @@ function Paket() {
               </Text>
               <Group flex={2} gap="xs">
                 <Title order={3}>Starter</Title>
-                <Badge>Free</Badge>
+                <Badge size="xs" color="gray">
+                  Free
+                </Badge>
               </Group>
             </Group>
             <Group>
@@ -35,7 +37,7 @@ function Paket() {
                 Devices
               </Text>
               <Stack flex={2} gap="xs">
-                <Progress value={(8 / 10) * 100} />
+                <Progress value={(8 / 10) * 100} color="red" />
                 <Text size="xs" c="dimmed">
                   8 dari 10 devices tersisa
                 </Text>
@@ -46,7 +48,7 @@ function Paket() {
                 Contacts
               </Text>
               <Stack flex={2} gap="xs">
-                <Progress value={5} />
+                <Progress value={5} color="green" />
                 <Text size="xs" c="dimmed">
                   5 dari 100 kontak yang tersisa
                 </Text>
@@ -98,14 +100,16 @@ function PesanTerakhir() {
           </Card>
           <Card padding="xs" withBorder>
             <Group>
-              <Avatar size="sm" />
+              <Avatar size="sm" color="green" />
               <Box flex={1}>
-                <Text size="xs">Anda</Text>
+                <Text size="xs">Bintang Afif</Text>
                 <Text size="xs" lineClamp={1}>
                   Hai! Bagaimana kabarmu hari ini? Semoga sehat selalu.
                 </Text>
               </Box>
-              <Badge size="xs">Terkirim</Badge>
+              <Badge size="xs" color="green">
+                Diterima
+              </Badge>
             </Group>
           </Card>
           <Text ta="right" size="xs">

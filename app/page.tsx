@@ -16,6 +16,7 @@ import {
   Title,
 } from "@mantine/core";
 import { IconArrowRight, IconSearch } from "@tabler/icons-react";
+import Link from "next/link";
 
 function Section_1() {
   return (
@@ -33,7 +34,14 @@ function Section_1() {
             kendali penuh pesan dengan manajemen konten yang praktis.
           </Text>
           <Box>
-            <Button rightSection={<IconArrowRight />}>Daftar sekarang</Button>
+            <Button
+              component={Link}
+              href="/account/signup"
+              size="md"
+              rightSection={<IconArrowRight />}
+            >
+              Daftar sekarang
+            </Button>
           </Box>
         </Stack>
         <Box className="flex flex-1 items-center justify-center">
@@ -116,7 +124,7 @@ function Section_5() {
   return (
     <Box className="flex min-h-screen flex-col items-center justify-center p-4">
       <Stack>
-        <Title ta="center">
+        <Title ta="center" c="blue.6">
           &quot;One Step Closer to More Effective and
           <br />
           Connected Communication!&quot;

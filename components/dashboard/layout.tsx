@@ -16,6 +16,7 @@ import {
   ThemeIcon,
   Title,
   useMantineColorScheme,
+  useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -25,11 +26,11 @@ import {
   IconSettings,
 } from "@tabler/icons-react";
 import Logo from "../ui/logo";
-import LogoDark from "../ui/logo-dark";
 import Navbar from "./navbar";
 import SignOut from "./signout";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const theme = useMantineTheme();
   const [opened, { toggle, close }] = useDisclosure();
   const { toggleColorScheme } = useMantineColorScheme();
   const newVariable = (
@@ -52,8 +53,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <HoverCard.Target>
             <Button
               variant="default"
+              size="xs"
+              rightSection={
+                <Avatar
+                  visibleFrom="sm"
+                  variant="filled"
+                  size="xs"
+                  color="blue"
+                />
+              }
               radius="xl"
-              rightSection={<Avatar size="sm" />}
             >
               Haikal Rowi
             </Button>
@@ -82,7 +91,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             Jumat, 23 Agustus 2024
           </Text>
         </Stack>
-        <ThemeIcon flex={1} variant="transparent">
+        <ThemeIcon variant="transparent" color="gray">
           <IconCalendar />
         </ThemeIcon>
       </Group>
@@ -109,11 +118,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </AppShell.Header>
       <AppShell.Navbar p="md" onClick={close}>
         <AppShell.Section>
-          <Center darkHidden>
-            <Logo />
-          </Center>
-          <Center lightHidden>
-            <LogoDark />
+          <Center>
+            <Logo fill={theme.colors.blue[6]} />
           </Center>
         </AppShell.Section>
         <AppShell.Section mt="md" component={ScrollArea} grow>

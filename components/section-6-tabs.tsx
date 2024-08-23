@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Badge,
   Box,
   Button,
   Card,
@@ -79,7 +80,7 @@ function Starter() {
 
 function Basic() {
   return (
-    <Card>
+    <Card shadow="md" withBorder>
       <Stack>
         <Title order={2}>Basic</Title>
         <Text className="md:h-48 lg:h-36" size="xs">
@@ -94,7 +95,7 @@ function Basic() {
             /bulan
           </Text>
         </Title>
-        <Button>Get Started</Button>
+        <Button color="yellow">Get Started</Button>
         <Features />
       </Stack>
     </Card>
@@ -157,7 +158,7 @@ export default function Section_6_Tabs() {
         <Tabs.Tab value="yearly">Yearly</Tabs.Tab>
       </Tabs.List>
       <Tabs.Panel value="monthly">
-        <Box className="flex max-md:flex-col">
+        <Box className="flex gap-4 max-md:flex-col">
           <Box className="flex-1">
             <Starter />
           </Box>
@@ -173,20 +174,23 @@ export default function Section_6_Tabs() {
         </Box>
       </Tabs.Panel>
       <Tabs.Panel value="yearly">
-        <Box className="flex max-md:flex-col">
-          <Box className="flex-1">
-            <Starter />
+        <Stack align="center">
+          <Badge variant="light">Hemat hingga 25% dengan paket tahunan</Badge>
+          <Box className="flex gap-4 max-md:flex-col">
+            <Box className="flex-1">
+              <Starter />
+            </Box>
+            <Box className="flex-1">
+              <Basic />
+            </Box>
+            <Box className="flex-1">
+              <Premium />
+            </Box>
+            <Box className="flex-1">
+              <Pro />
+            </Box>
           </Box>
-          <Box className="flex-1">
-            <Basic />
-          </Box>
-          <Box className="flex-1">
-            <Premium />
-          </Box>
-          <Box className="flex-1">
-            <Pro />
-          </Box>
-        </Box>
+        </Stack>
       </Tabs.Panel>
     </Tabs>
   );

@@ -12,12 +12,11 @@ import {
   Stack,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Logo from "./ui/logo";
 import LogoDark from "./ui/logo-dark";
 
 export default function Navbar() {
-  const router = useRouter();
   const [opened, { toggle }] = useDisclosure();
   const logo = (
     <Group pos="relative" wrap="nowrap" gap="xs">
@@ -44,7 +43,9 @@ export default function Navbar() {
       <Button variant="transparent" size="compact-sm" color="gray">
         Blog
       </Button>
-      <Button onClick={() => router.push("/account/signin")}>Sign In</Button>
+      <Button component={Link} href="/account/signin">
+        Sign In
+      </Button>
     </>
   );
   return (

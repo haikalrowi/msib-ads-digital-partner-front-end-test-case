@@ -81,7 +81,7 @@ export default async function SignInAccountPage({
               <Stack gap="sm">
                 <Stack gap="xs">
                   {lupaPassword && (
-                    <Card bg="gray.1" padding="xs">
+                    <Card shadow="xs" padding="xs">
                       <Text size="xs" c="gray">
                         Mohon masukkan alamat email Anda di bawah ini dan kami
                         akan mengirimkan instruksi untuk proses pemulihan

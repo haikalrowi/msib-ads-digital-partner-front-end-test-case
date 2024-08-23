@@ -63,7 +63,7 @@ export default function SignUpAccountPage() {
                     size="md"
                     name="password"
                   />
-                  <Card bg="gray.0" padding="xs">
+                  <Card shadow="xs" padding="xs">
                     <Text size="xs">Password harus mengandung:</Text>
                     <Text size="xs" c="gray">
                       Paling tidak 8 karakter
