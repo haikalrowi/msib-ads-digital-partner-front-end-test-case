@@ -8,7 +8,9 @@ import {
   Container,
   Fieldset,
   Group,
+  NumberInput,
   PasswordInput,
+  Select,
   Stack,
   Text,
   TextInput,
@@ -18,8 +20,8 @@ import {
 export default function SignUpAccountPage() {
   return (
     <Container>
-      <Box className="flex h-screen items-center justify-center gap-4 max-md:flex-col">
-        <Group className="fixed top-8 md:left-4 md:top-4">
+      <Box className="flex min-h-screen items-center justify-center gap-4 py-4 max-md:flex-col">
+        <Group className="relative md:fixed md:left-4 md:top-4">
           <LogoSymbol size={32} />
           <LogoType size={24} />
           <Anchor href="/" pos="absolute" inset={0} />
@@ -41,11 +43,16 @@ export default function SignUpAccountPage() {
             <Fieldset variant="unstyled">
               <Stack gap="sm">
                 <TextInput placeholder="Username" size="md" name="username" />
-                <TextInput
-                  placeholder="WhatsApp Phone Number"
-                  size="md"
-                  name="username"
-                />
+                <Group>
+                  <Select flex={1} data={["+62", "+1", "+2", "+3"]} />
+                  <NumberInput
+                    placeholder="WhatsApp Phone Number"
+                    name="username"
+                    flex={4}
+                    size="md"
+                    hideControls
+                  />
+                </Group>
                 <Stack gap="xs">
                   <PasswordInput
                     placeholder="Password"

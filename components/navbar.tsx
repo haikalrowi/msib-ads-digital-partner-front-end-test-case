@@ -6,9 +6,9 @@ import {
   Box,
   Button,
   Card,
+  Collapse,
   Group,
   Stack,
-  Transition,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMenu2 } from "@tabler/icons-react";
@@ -54,14 +54,9 @@ export default function Navbar() {
                 <IconMenu2 />
               </ActionIcon>
             </Group>
-            <Transition
-              keepMounted
-              transition="pop"
-              duration={100}
-              mounted={opened}
-            >
-              {(styles) => <Stack style={styles}>{items}</Stack>}
-            </Transition>
+            <Collapse in={opened}>
+              <Stack>{items}</Stack>
+            </Collapse>
           </Stack>
         </Card>
       </Box>

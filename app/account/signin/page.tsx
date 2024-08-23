@@ -33,8 +33,8 @@ export default async function SignInAccountPage({
   const passwordBaru = searchParams.state === "password-baru";
   return (
     <Container>
-      <Box className="flex h-screen items-center justify-center gap-4 max-md:flex-col">
-        <Group className="fixed top-8 md:left-4 md:top-4">
+      <Box className="flex min-h-screen items-center justify-center gap-4 max-md:flex-col">
+        <Group className="relative md:fixed md:left-4 md:top-4">
           <LogoSymbol size={32} />
           <LogoType size={24} />
           <Anchor href="/" pos="absolute" inset={0} />
@@ -50,14 +50,18 @@ export default async function SignInAccountPage({
                 ? "Password Recovery"
                 : cekEmail
                   ? "Cek Email"
-                  : "Welcome back"}
+                  : passwordBaru
+                    ? "New Password"
+                    : "Welcome back"}
             </Title>
             <Text ta="center">
               {lupaPassword
                 ? "Kami akan membantu Anda mengatur ulang kata sandi Anda dengan cepat"
                 : cekEmail
                   ? "Cek email yang anda masukkan tadi, kemudian ikuti instruksi untuk proses pemulihan"
-                  : "We're so excited to see you again!"}
+                  : passwordBaru
+                    ? "Masukkan Password Baru"
+                    : "We're so excited to see you again!"}
             </Text>
           </Stack>
           <form
