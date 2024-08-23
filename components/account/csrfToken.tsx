@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function SignInCsrfToken() {
+export default function CsrfToken() {
   const csrfToken = useState("");
   useEffect(() => {
     (async () => {

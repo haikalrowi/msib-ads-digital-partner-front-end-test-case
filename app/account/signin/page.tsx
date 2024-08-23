@@ -1,4 +1,4 @@
-import SignInCsrfToken from "@/components/account/signin-csrfToken";
+import CsrfToken from "@/components/account/csrfToken";
 import LogoSymbol from "@/components/ui/logo-symbol";
 import LogoType from "@/components/ui/logo-type";
 import { authOptions } from "@/lib/next-auth";
@@ -72,7 +72,7 @@ export default async function SignInAccountPage({
                 : "/api/auth/callback/credentials?callbackUrl=/dashboard"
             }
           >
-            {!lupaPassword && <SignInCsrfToken />}
+            {!lupaPassword && <CsrfToken />}
             <Fieldset variant="unstyled">
               <Stack gap="sm">
                 <Stack gap="xs">

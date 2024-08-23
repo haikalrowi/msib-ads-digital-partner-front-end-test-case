@@ -1,19 +1,28 @@
 "use client";
 
 import {
+  ActionIcon,
   AppShell,
+  Avatar,
   Burger,
+  Container,
   Group,
+  HoverCard,
   NavLink,
   NavLinkVariant,
   ScrollArea,
+  Stack,
   Text,
+  ThemeIcon,
+  Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconAddressBook,
   IconApi,
+  IconBell,
   IconBroadcast,
+  IconCalendar,
   IconDeviceMobile,
   IconGraph,
   IconHelp,
@@ -30,6 +39,7 @@ import {
 import { useState } from "react";
 import LogoSymbol from "../ui/logo-symbol";
 import LogoType from "../ui/logo-type";
+import SignOut from "./signout";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [active, setActive] = useState(0);
@@ -170,7 +180,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <AppShell
       layout="alt"
-      header={{ height: 16 * 4 }}
+      header={{ height: { base: 16 * 10, sm: 16 * 8 } }}
       navbar={{
         width: 16 * 16,
         breakpoint: "sm",
@@ -178,10 +188,58 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }}
       padding="md"
     >
-      <AppShell.Header hiddenFrom="sm">
-        <Group h="100%" px="md">
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        </Group>
+      <AppShell.Header bg="gray.1" withBorder={false}>
+        <Container h="100%">
+          <Stack h="100%">
+            <Group flex={1}>
+              <Burger
+                opened={opened}
+                onClick={toggle}
+                hiddenFrom="sm"
+                size="sm"
+              />
+              <Group flex={1} justify="end">
+                <ActionIcon variant="white" radius="xl">
+                  <IconBell size={20} />
+                </ActionIcon>
+                <HoverCard>
+                  <HoverCard.Target>
+                    <Group className="rounded-full" p={4} bg="white" gap="xs">
+                      <Text px="md" visibleFrom="sm" size="sm">
+                        Haikal Rowi
+                      </Text>
+                      <Avatar size="sm" />
+                    </Group>
+                  </HoverCard.Target>
+                  <HoverCard.Dropdown>
+                    <SignOut />
+                  </HoverCard.Dropdown>
+                </HoverCard>
+                <ActionIcon variant="white" radius="xl">
+                  <IconSettings size={20} />
+                </ActionIcon>
+              </Group>
+            </Group>
+            <Group flex={1}>
+              <Title flex={2} order={3}>
+                Selamat datang, Haikal Rowi
+              </Title>
+              <Group flex={1} visibleFrom="sm" gap="xs">
+                <Stack flex={4} gap={0}>
+                  <Text ta="right" size="xs" c="dimmed">
+                    Tanggal hari ini
+                  </Text>
+                  <Text ta="right" size="sm">
+                    Jumat, 23 Agustus 2024
+                  </Text>
+                </Stack>
+                <ThemeIcon flex={1} variant="transparent">
+                  <IconCalendar />
+                </ThemeIcon>
+              </Group>
+            </Group>
+          </Stack>
+        </Container>
       </AppShell.Header>
       <AppShell.Navbar p="md" onClick={close}>
         <AppShell.Section>
@@ -196,7 +254,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {navigation_others_jsx}
         </AppShell.Section>
       </AppShell.Navbar>
-      <AppShell.Main>{children}</AppShell.Main>
+      <AppShell.Main bg="gray.1">{children}</AppShell.Main>
     </AppShell>
   );
 }
