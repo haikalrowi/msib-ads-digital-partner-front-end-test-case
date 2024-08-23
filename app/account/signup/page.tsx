@@ -30,7 +30,7 @@ export default function SignUpAccountPage() {
           {<Box bg="blue" w={240} h={240} />}
           {/* <Image radius="md" alt="" /> */}
         </Box>
-        <Stack className="md:flex-[2]" gap="xs">
+        <Stack className="md:flex-[1]" gap="xs">
           <Stack gap="xs">
             <Title ta="center" order={2}>
               Welcome to Forwardin

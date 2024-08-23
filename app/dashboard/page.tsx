@@ -6,7 +6,6 @@ import {
   Box,
   Button,
   Card,
-  Container,
   Group,
   Progress,
   Select,
@@ -228,29 +227,29 @@ function Analitik() {
               <TextInput
                 flex={1}
                 variant="filled"
-                description="Aktif sejak"
-                defaultValue="29.8.2023"
+                description="Hari ini"
+                defaultValue="24"
                 readOnly
               />
               <TextInput
                 flex={1}
                 variant="filled"
-                description="Aktif sejak"
-                defaultValue="29.8.2023"
+                description="Rata-rata harian"
+                defaultValue="7"
                 readOnly
               />
               <TextInput
                 flex={1}
                 variant="filled"
-                description="Aktif sejak"
-                defaultValue="29.8.2023"
+                description="Bulan ini"
+                defaultValue="23"
                 readOnly
               />
               <TextInput
                 flex={1}
                 variant="filled"
-                description="Aktif sejak"
-                defaultValue="29.8.2023"
+                description="Rata-rata waktu"
+                defaultValue="00:02:42"
                 readOnly
               />
             </Group>
@@ -283,14 +282,12 @@ function Analitik() {
 
 export default function DashboardPage() {
   return (
-    <Container>
-      <Stack>
-        <Box className="flex gap-4 max-lg:flex-col">
-          <Paket />
-          <PesanTerakhir />
-        </Box>
-        <Analitik />
-      </Stack>
-    </Container>
+    <Stack>
+      <Box className="flex gap-4 max-lg:flex-col">
+        <Paket />
+        <PesanTerakhir />
+      </Box>
+      <Analitik />
+    </Stack>
   );
 }

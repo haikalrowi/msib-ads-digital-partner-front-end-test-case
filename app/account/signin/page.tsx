@@ -33,7 +33,7 @@ export default async function SignInAccountPage({
   const passwordBaru = searchParams.state === "password-baru";
   return (
     <Container>
-      <Box className="flex min-h-screen items-center justify-center gap-4 max-md:flex-col">
+      <Box className="flex min-h-screen items-center justify-center gap-4 py-4 max-md:flex-col">
         <Group className="relative md:fixed md:left-4 md:top-4">
           <LogoSymbol size={32} />
           <LogoType size={24} />
@@ -43,7 +43,7 @@ export default async function SignInAccountPage({
           {<Box bg="blue" w={240} h={240} />}
           {/* <Image radius="md" alt="" /> */}
         </Box>
-        <Stack className="md:flex-[2]" gap="xs">
+        <Stack className="md:flex-[1]" gap="xs">
           <Stack gap="xs">
             <Title ta="center" order={2}>
               {lupaPassword
