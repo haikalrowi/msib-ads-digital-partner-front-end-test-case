@@ -1,3 +1,4 @@
+import { DonutChart, LineChart } from "@mantine/charts";
 import {
   Anchor,
   Avatar,
@@ -8,8 +9,10 @@ import {
   Container,
   Group,
   Progress,
+  Select,
   Stack,
   Text,
+  TextInput,
   Title,
 } from "@mantine/core";
 
@@ -115,15 +118,174 @@ function PesanTerakhir() {
   );
 }
 
+function RingkasanHariIni() {
+  return (
+    <Card className="flex-[1]" withBorder>
+      <Stack>
+        <Title order={6}>Ringkasan hari ini</Title>
+        <Group>
+          <Select
+            flex={1}
+            variant="filled"
+            description="Device"
+            data={["RMX3263", "SM3263"]}
+            defaultSearchValue="RMX3263"
+          />
+          <TextInput
+            flex={1}
+            variant="filled"
+            description="Aktif sejak"
+            defaultValue="29.8.2023"
+            readOnly
+          />
+        </Group>
+        <Group>
+          <Box>
+            <Text size="xs" c="dimmed">
+              Pesan keluar
+            </Text>
+            <Title order={6}>24</Title>
+          </Box>
+          <Box>
+            <Text size="xs" c="dimmed">
+              Pesan masuk
+            </Text>
+            <Title order={6}>7</Title>
+          </Box>
+          <Box>
+            <Text size="xs" c="dimmed">
+              Pesan gagal
+            </Text>
+            <Title order={6}>0</Title>
+          </Box>
+        </Group>
+      </Stack>
+    </Card>
+  );
+}
+
+const data_1 = [
+  { name: "Total pesan masuk", value: 23, color: "blue.6" },
+  { name: "Total pesan keluar", value: 45, color: "yellow.6" },
+  { name: "Total pesan gagal", value: 8, color: "teal.6" },
+];
+
+function TotalStatistikPesan() {
+  return (
+    <Card className="flex-[2]" withBorder>
+      <Stack>
+        <Title order={6}>Total statistik pemesanan</Title>
+        <Group>
+          <Stack flex={1}>
+            <Box>
+              <Text size="xs" c="dimmed">
+                Total pesan masuk
+              </Text>
+              <Title order={6}>{data_1[0].value}</Title>
+            </Box>
+            <Box>
+              <Text size="xs" c="dimmed">
+                Total pesan keluar
+              </Text>
+              <Title order={6}>{data_1[1].value}</Title>
+            </Box>
+            <Box>
+              <Text size="xs" c="dimmed">
+                Total pesan gagal
+              </Text>
+              <Title order={6}>{data_1[2].value}</Title>
+            </Box>
+          </Stack>
+          <Group flex={1} justify="center">
+            <DonutChart data={data_1} />
+          </Group>
+        </Group>
+      </Stack>
+    </Card>
+  );
+}
+
+const data_2 = [
+  { date: "Mar 22", Oranges: 2338 },
+  { date: "Mar 23", Oranges: 2103 },
+  { date: "Mar 24", Oranges: 986 },
+  { date: "Mar 25", Oranges: 2108 },
+  { date: "Mar 26", Oranges: 1726 },
+];
+
 function Analitik() {
-  return <Card className="flex-1"></Card>;
+  return (
+    <Card className="flex-1">
+      <Stack>
+        <Title order={5}>Analitik</Title>
+        <Box className="flex gap-4 max-lg:flex-col">
+          <RingkasanHariIni />
+          <TotalStatistikPesan />
+        </Box>
+        <Card withBorder>
+          <Stack>
+            <Group>
+              <TextInput
+                flex={1}
+                variant="filled"
+                description="Aktif sejak"
+                defaultValue="29.8.2023"
+                readOnly
+              />
+              <TextInput
+                flex={1}
+                variant="filled"
+                description="Aktif sejak"
+                defaultValue="29.8.2023"
+                readOnly
+              />
+              <TextInput
+                flex={1}
+                variant="filled"
+                description="Aktif sejak"
+                defaultValue="29.8.2023"
+                readOnly
+              />
+              <TextInput
+                flex={1}
+                variant="filled"
+                description="Aktif sejak"
+                defaultValue="29.8.2023"
+                readOnly
+              />
+            </Group>
+            <Title order={6}>Grafik chart perjam</Title>
+            <Title c="blue" order={4}>
+              512
+            </Title>
+            <LineChart
+              h={256}
+              data={data_2}
+              dataKey="date"
+              series={[{ name: "Oranges", color: "blue.6" }]}
+            />
+            <Title order={6}>Grafik chart perjam</Title>
+            <Title c="blue" order={4}>
+              256
+            </Title>
+            <LineChart
+              h={256}
+              data={data_2}
+              dataKey="date"
+              series={[{ name: "Oranges", color: "blue.6" }]}
+            />
+          </Stack>
+        </Card>
+      </Stack>
+    </Card>
+  );
 }
 
 export default function DashboardPage() {
   return (
     <Container>
       <Stack>
-        <Box className="flex gap-4 max-md:flex-col">
+        <Box className="flex gap-4 max-lg:flex-col">
           <Paket />
           <PesanTerakhir />
         </Box>
