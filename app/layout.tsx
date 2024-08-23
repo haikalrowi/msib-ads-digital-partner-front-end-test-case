@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@mantine/charts/styles.css";
 import "@mantine/core/styles.css";
 
 import { ColorSchemeScript, createTheme, MantineProvider } from "@mantine/core";

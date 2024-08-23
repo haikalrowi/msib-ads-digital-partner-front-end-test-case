@@ -166,7 +166,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       ))}
     </>
   );
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { toggle, close }] = useDisclosure();
   return (
     <AppShell
       layout="alt"
@@ -183,7 +183,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
         </Group>
       </AppShell.Header>
-      <AppShell.Navbar p="md">
+      <AppShell.Navbar p="md" onClick={close}>
         <AppShell.Section>
           <Group justify="center" gap="xs">
             <LogoSymbol size={24} />

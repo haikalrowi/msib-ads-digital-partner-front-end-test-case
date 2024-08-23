@@ -10,13 +10,15 @@
     "prettier . --write": "prettier . --write"
   },
   "dependencies": {
+    "@mantine/charts": "^7",
     "@mantine/core": "^7",
     "@mantine/hooks": "^7",
     "@tabler/icons-react": "^3",
     "next": "14.2.6",
     "next-auth": "^4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "recharts": "2"
   },
   "devDependencies": {
     "@types/node": "^20",
