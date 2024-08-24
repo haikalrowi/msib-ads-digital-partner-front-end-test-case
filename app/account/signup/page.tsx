@@ -1,5 +1,7 @@
 import Logo from "@/components/ui/logo";
 import LogoDark from "@/components/ui/logo-dark";
+import DashboardImageDark from "@/public/image-dark.png";
+import DashboardImage from "@/public/image.png";
 import {
   Anchor,
   Box,
@@ -8,6 +10,7 @@ import {
   Container,
   Fieldset,
   Group,
+  Image,
   NumberInput,
   PasswordInput,
   Select,
@@ -31,8 +34,20 @@ export default function SignUpAccountPage() {
           <Anchor href="/" pos="absolute" inset={0} />
         </Group>
         <Box className="flex items-center justify-center max-md:hidden md:flex-[1]">
-          {<Box bg="blue" w={240} h={240} />}
-          {/* <Image radius="md" alt="" /> */}
+          <Box className="relative size-full max-md:h-64">
+            <Image
+              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4 shadow-md"
+              src={DashboardImage.src}
+              alt=""
+              radius="md"
+            />
+            <Image
+              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4 shadow-md"
+              src={DashboardImageDark.src}
+              alt=""
+              radius="md"
+            />
+          </Box>
         </Box>
         <Stack className="md:flex-[1]" gap="xs">
           <Stack gap="xs">
