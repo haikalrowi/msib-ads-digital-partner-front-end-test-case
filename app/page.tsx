@@ -29,7 +29,16 @@ import Link from "next/link";
 
 function Section_1() {
   return (
-    <Box className="flex min-h-screen flex-col items-center justify-center p-4">
+    <Box className="relative flex min-h-screen flex-col items-center justify-center p-4">
+      <Box
+        className="absolute inset-y-0 -z-10 w-[98vw] overflow-hidden"
+        darkHidden
+      >
+        <Box className="absolute inset-0" bg="blue.0" />
+        <Box className="absolute left-[50%] top-0 size-[130vh] -translate-x-[50%] -translate-y-[50%] rotate-45 rounded-[7vw] bg-gradient-to-t from-[--mantine-color-blue-0] to-white to-10%" />
+        <Box className="absolute left-[25%] top-0 size-[130vh] -translate-x-[50%] -translate-y-[50%] rotate-45 rounded-[7vw] bg-gradient-to-t from-[--mantine-color-blue-0] to-white to-10%" />
+        <Box className="absolute left-[0%] top-0 size-[130vh] -translate-x-[50%] -translate-y-[50%] rotate-45 rounded-[7vw] bg-gradient-to-t from-[--mantine-color-blue-0] to-white to-10%" />
+      </Box>
       <Box className="flex gap-4 max-md:flex-col">
         <Stack className="flex-1">
           <Title>
@@ -56,13 +65,13 @@ function Section_1() {
         <Box className="flex flex-1 items-center justify-center">
           <Box className="relative size-full max-md:h-64">
             <Image
-              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4"
+              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4 shadow-md"
               src={DashboardImage.src}
               alt=""
               radius="md"
             />
             <Image
-              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4"
+              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4 shadow-md"
               src={DashboardImageDark.src}
               alt=""
               radius="md"
@@ -76,7 +85,10 @@ function Section_1() {
 
 function Section_2() {
   return (
-    <Box className="flex min-h-screen flex-col items-center justify-center p-4">
+    <Box className="relative flex min-h-screen flex-col items-center justify-center p-4">
+      <Box className="absolute inset-y-0 -z-10 w-[98vw]" darkHidden>
+        <Box className="absolute inset-0" bg="blue.0" />
+      </Box>
       <Box className="flex gap-4 max-md:flex-col">
         <Stack className="flex-1 md:order-2">
           <Title>Reach Further with Ease</Title>
@@ -90,13 +102,13 @@ function Section_2() {
         <Box className="flex flex-1 items-center justify-center">
           <Box className="relative size-full max-md:h-64">
             <Image
-              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4"
+              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4 shadow-md"
               src={Section2Image.src}
               alt=""
               radius="md"
             />
             <Image
-              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4"
+              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4 shadow-md"
               src={Section2DarkImage.src}
               alt=""
               radius="md"
@@ -124,13 +136,13 @@ function Section_3() {
         <Box className="flex flex-1 items-center justify-center">
           <Box className="relative size-full max-md:h-64">
             <Image
-              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4"
+              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4 shadow-md"
               src={Section3Image.src}
               alt=""
               radius="md"
             />
             <Image
-              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4"
+              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4 shadow-md"
               src={Section3DarkImage.src}
               alt=""
               radius="md"
@@ -144,7 +156,10 @@ function Section_3() {
 
 function Section_4() {
   return (
-    <Box className="flex min-h-screen flex-col items-center justify-center p-4">
+    <Box className="relative flex min-h-screen flex-col items-center justify-center p-4">
+      <Box className="absolute inset-y-0 -z-10 w-[98vw]" darkHidden>
+        <Box className="absolute inset-0" bg="blue.0" />
+      </Box>
       <Box className="flex gap-4 max-md:flex-col">
         <Stack className="flex-1">
           <Title>Respond Faster with the Convenience of Auto Reply</Title>
@@ -159,7 +174,7 @@ function Section_4() {
         <Box className="flex flex-1 items-center justify-center">
           <Box className="relative size-full max-md:h-64">
             <Image
-              className="absolute top-1/2 -translate-y-1/2"
+              className="absolute top-1/2 -translate-y-1/2 shadow-md"
               src={Section4Image.src}
               alt=""
               radius="md"
@@ -184,7 +199,7 @@ function Section_5() {
           <Box className="flex flex-[1] items-center justify-center">
             <Box className="relative size-full max-md:h-64">
               <Image
-                className="absolute top-1/2 -translate-y-1/2"
+                className="absolute top-1/2 -translate-y-1/2 shadow-md"
                 src={Section5Image.src}
                 alt=""
                 radius="md"
@@ -213,14 +228,19 @@ function Section_6() {
 
 function Section_7() {
   return (
-    <Box className="flex min-h-screen flex-col items-stretch justify-center p-4">
+    <Box className="relative flex min-h-screen flex-col items-center justify-center p-4">
+      <Box className="absolute inset-y-0 -z-10 w-[98vw]" darkHidden>
+        <Box className="absolute inset-0 bg-[--mantine-color-blue-6]" />
+      </Box>
       <Stack>
-        <Title ta="center">Frequently Asked Questions</Title>
+        <Title className="text-[--mantine-color-white]" ta="center">
+          Frequently Asked Questions
+        </Title>
         <form>
           <Fieldset variant="unstyled">
             <Group wrap="nowrap">
               <TextInput flex={1} />
-              <ActionIcon variant="transparent">
+              <ActionIcon>
                 <IconSearch />
               </ActionIcon>
             </Group>

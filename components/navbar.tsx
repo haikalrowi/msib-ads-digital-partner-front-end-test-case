@@ -64,7 +64,7 @@ export default function Navbar() {
         </Card>
       </Box>
       <Box className="fixed left-1/2 top-2 z-10 -translate-x-1/2 max-md:hidden">
-        <Card shadow="sm" padding="xs">
+        <Card shadow="sm" padding="xs" opacity={0.9}>
           <Group wrap="nowrap">
             {logo}
             {items}

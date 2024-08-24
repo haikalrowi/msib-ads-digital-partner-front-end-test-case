@@ -4,12 +4,15 @@ import LogoDark from "./ui/logo-dark";
 
 export default function Footer() {
   return (
-    <Box className="flex min-h-screen flex-col items-stretch justify-center p-4">
-      <Stack>
+    <Box className="relative flex min-h-screen flex-col items-center justify-center p-4">
+      <Box className="absolute inset-y-0 -z-10 w-[98vw]" darkHidden>
+        <Box className="absolute inset-0 bg-[--mantine-color-blue-6]" />
+      </Box>
+      <Stack className="text-[--mantine-color-white]">
         <Box className="flex gap-4 max-md:flex-col">
           <Stack className="flex-[3]">
             <Box darkHidden>
-              <Logo />
+              <Logo fill="var(--mantine-color-white)" />
             </Box>
             <Box lightHidden>
               <LogoDark />
@@ -46,7 +49,7 @@ export default function Footer() {
         <Group className="mt-32" justify="center">
           <Text span>Powered By</Text>
           <Center darkHidden>
-            <Logo size={20} />
+            <Logo size={20} fill="var(--mantine-color-white)" />
           </Center>
           <Center lightHidden>
             <LogoDark size={20} />
