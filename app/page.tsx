@@ -3,6 +3,14 @@ import Navbar from "@/components/navbar";
 import Section_5_Tabs from "@/components/section-5-tabs";
 import Section_6_Tabs from "@/components/section-6-tabs";
 import Section_7_Accordion from "@/components/section-7-accordion";
+import DashboardImageDark from "@/public/image-dark.png";
+import DashboardImage from "@/public/image.png";
+import Section2DarkImage from "@/public/section-2-dark.png";
+import Section2Image from "@/public/section-2.png";
+import Section3DarkImage from "@/public/section-3-dark.png";
+import Section3Image from "@/public/section-3.png";
+import Section4Image from "@/public/section-4.png";
+import Section5Image from "@/public/section-5.png";
 import {
   ActionIcon,
   Box,
@@ -10,6 +18,7 @@ import {
   Container,
   Fieldset,
   Group,
+  Image,
   Stack,
   Text,
   TextInput,
@@ -45,8 +54,20 @@ function Section_1() {
           </Box>
         </Stack>
         <Box className="flex flex-1 items-center justify-center">
-          {<Box bg="blue" w={240} h={240} />}
-          {/* <Image radius="md" alt="" /> */}
+          <Box className="relative size-full max-md:h-64">
+            <Image
+              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4"
+              src={DashboardImage.src}
+              alt=""
+              radius="md"
+            />
+            <Image
+              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4"
+              src={DashboardImageDark.src}
+              alt=""
+              radius="md"
+            />
+          </Box>
         </Box>
       </Box>
     </Box>
@@ -66,9 +87,21 @@ function Section_2() {
             Anda tidak pernah semudah ini.
           </Text>
         </Stack>
-        <Box className="flex flex-1 items-center justify-center md:order-1">
-          {<Box bg="blue" w={240} h={240} />}
-          {/* <Image radius="md" alt="" /> */}
+        <Box className="flex flex-1 items-center justify-center">
+          <Box className="relative size-full max-md:h-64">
+            <Image
+              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4"
+              src={Section2Image.src}
+              alt=""
+              radius="md"
+            />
+            <Image
+              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4"
+              src={Section2DarkImage.src}
+              alt=""
+              radius="md"
+            />
+          </Box>
         </Box>
       </Box>
     </Box>
@@ -89,8 +122,20 @@ function Section_3() {
           </Text>
         </Stack>
         <Box className="flex flex-1 items-center justify-center">
-          {<Box bg="blue" w={240} h={240} />}
-          {/* <Image radius="md" alt="" /> */}
+          <Box className="relative size-full max-md:h-64">
+            <Image
+              className="absolute left-2 top-1/2 w-5/6 -translate-y-3/4"
+              src={Section3Image.src}
+              alt=""
+              radius="md"
+            />
+            <Image
+              className="absolute bottom-1/2 right-2 w-5/6 translate-y-3/4"
+              src={Section3DarkImage.src}
+              alt=""
+              radius="md"
+            />
+          </Box>
         </Box>
       </Box>
     </Box>
@@ -112,8 +157,14 @@ function Section_4() {
           </Text>
         </Stack>
         <Box className="flex flex-1 items-center justify-center">
-          {<Box bg="blue" w={240} h={240} />}
-          {/* <Image radius="md" alt="" /> */}
+          <Box className="relative size-full max-md:h-64">
+            <Image
+              className="absolute top-1/2 -translate-y-1/2"
+              src={Section4Image.src}
+              alt=""
+              radius="md"
+            />
+          </Box>
         </Box>
       </Box>
     </Box>
@@ -131,8 +182,14 @@ function Section_5() {
         </Title>
         <Box className="flex gap-4 max-md:flex-col">
           <Box className="flex flex-[1] items-center justify-center">
-            {<Box bg="blue" w={120} h={120} />}
-            {/* <Image radius="md" alt="" /> */}
+            <Box className="relative size-full max-md:h-64">
+              <Image
+                className="absolute top-1/2 -translate-y-1/2"
+                src={Section5Image.src}
+                alt=""
+                radius="md"
+              />
+            </Box>
           </Box>
           <Box className="flex-[2] md:h-48 lg:h-32">
             <Section_5_Tabs />
