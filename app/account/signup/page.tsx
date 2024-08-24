@@ -49,67 +49,71 @@ export default function SignUpAccountPage() {
             />
           </Box>
         </Box>
-        <Stack className="md:flex-[1]" gap="xs">
+        <Card className="md:flex-[1]" shadow="md" withBorder>
           <Stack gap="xs">
-            <Title ta="center" order={2}>
-              Welcome to Forwardin
-            </Title>
+            <Stack gap="xs">
+              <Title ta="center" order={2}>
+                Welcome to Forwardin
+              </Title>
+              <Text ta="center">
+                Revolutionize your communication journey with Forwardin today
+              </Text>
+            </Stack>
+            <form action="/account/signin">
+              <Fieldset variant="unstyled">
+                <Stack gap="sm">
+                  <TextInput placeholder="Username" size="md" name="username" />
+                  <Group>
+                    <Select flex={1} data={["+62", "+1", "+2", "+3"]} />
+                    <NumberInput
+                      placeholder="WhatsApp Phone Number"
+                      name="username"
+                      flex={4}
+                      size="md"
+                      hideControls
+                    />
+                  </Group>
+                  <Stack gap="xs">
+                    <PasswordInput
+                      placeholder="Password"
+                      size="md"
+                      name="password"
+                    />
+                    <Card shadow="xs" padding="xs">
+                      <Text size="xs">Password harus mengandung:</Text>
+                      <Text size="xs" c="gray">
+                        Paling tidak 8 karakter
+                      </Text>
+                      <Text size="xs">
+                        Password tidak 3 dari syarat berikut:
+                      </Text>
+                      <Text size="xs" c="gray">
+                        Huruf kecil (a-z)
+                      </Text>
+                      <Text size="xs" c="gray">
+                        Huruf besar (A-Z)
+                      </Text>
+                      <Text size="xs" c="gray">
+                        Angka
+                      </Text>
+                      <Text size="xs" c="gray">
+                        Karakter Spesial (!@#$%^&*)
+                      </Text>
+                    </Card>
+                  </Stack>
+                  <Button type="submit" size="md">
+                    Sign Up
+                  </Button>
+                </Stack>
+              </Fieldset>
+            </form>
             <Text ta="center">
-              Revolutionize your communication journey with Forwardin today
+              Sudah punya akun?
+              <span> </span>
+              <Anchor href="/account/signin">Masuk di sini</Anchor>
             </Text>
           </Stack>
-          <form action="/account/signin">
-            <Fieldset variant="unstyled">
-              <Stack gap="sm">
-                <TextInput placeholder="Username" size="md" name="username" />
-                <Group>
-                  <Select flex={1} data={["+62", "+1", "+2", "+3"]} />
-                  <NumberInput
-                    placeholder="WhatsApp Phone Number"
-                    name="username"
-                    flex={4}
-                    size="md"
-                    hideControls
-                  />
-                </Group>
-                <Stack gap="xs">
-                  <PasswordInput
-                    placeholder="Password"
-                    size="md"
-                    name="password"
-                  />
-                  <Card shadow="xs" padding="xs">
-                    <Text size="xs">Password harus mengandung:</Text>
-                    <Text size="xs" c="gray">
-                      Paling tidak 8 karakter
-                    </Text>
-                    <Text size="xs">Password tidak 3 dari syarat berikut:</Text>
-                    <Text size="xs" c="gray">
-                      Huruf kecil (a-z)
-                    </Text>
-                    <Text size="xs" c="gray">
-                      Huruf besar (A-Z)
-                    </Text>
-                    <Text size="xs" c="gray">
-                      Angka
-                    </Text>
-                    <Text size="xs" c="gray">
-                      Karakter Spesial (!@#$%^&*)
-                    </Text>
-                  </Card>
-                </Stack>
-                <Button type="submit" size="md">
-                  Sign Up
-                </Button>
-              </Stack>
-            </Fieldset>
-          </form>
-          <Text ta="center">
-            Sudah punya akun?
-            <span> </span>
-            <Anchor href="/account/signin">Masuk di sini</Anchor>
-          </Text>
-        </Stack>
+        </Card>
       </Box>
     </Container>
   );

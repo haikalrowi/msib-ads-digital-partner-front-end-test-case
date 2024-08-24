@@ -62,125 +62,129 @@ export default async function SignInAccountPage({
             />
           </Box>
         </Box>
-        <Stack className="md:flex-[1]" gap="xs">
+        <Card className="md:flex-[1]" shadow="md" withBorder>
           <Stack gap="xs">
-            <Title ta="center" order={2}>
-              {lupaPassword
-                ? "Password Recovery"
-                : cekEmail
-                  ? "Cek Email"
-                  : passwordBaru
-                    ? "New Password"
-                    : "Welcome back"}
-            </Title>
-            <Text ta="center">
-              {lupaPassword
-                ? "Kami akan membantu Anda mengatur ulang kata sandi Anda dengan cepat"
-                : cekEmail
-                  ? "Cek email yang anda masukkan tadi, kemudian ikuti instruksi untuk proses pemulihan"
-                  : passwordBaru
-                    ? "Masukkan Password Baru"
-                    : "We're so excited to see you again!"}
-            </Text>
-          </Stack>
-          <form
-            method={lupaPassword ? "GET" : "POST"}
-            action={
-              lupaPassword
-                ? "?state=cek-email"
-                : "/api/auth/callback/credentials?callbackUrl=/dashboard"
-            }
-          >
-            {!lupaPassword && <CsrfToken />}
-            <Fieldset variant="unstyled">
-              <Stack gap="sm">
-                <Stack gap="xs">
-                  {lupaPassword && (
-                    <Card shadow="xs" padding="xs">
-                      <Text size="xs" c="gray">
-                        Mohon masukkan alamat email Anda di bawah ini dan kami
-                        akan mengirimkan instruksi untuk proses pemulihan
-                      </Text>
-                    </Card>
-                  )}
-                  {!cekEmail && !passwordBaru && (
-                    <TextInput
-                      placeholder={lupaPassword ? "Email" : "Username"}
-                      size="md"
-                      defaultValue={lupaPassword ? undefined : "username"}
-                      name={lupaPassword ? undefined : "username"}
-                    />
-                  )}
-                </Stack>
-                {!lupaPassword && !cekEmail && (
+            <Stack gap="xs">
+              <Title ta="center" order={2}>
+                {lupaPassword
+                  ? "Password Recovery"
+                  : cekEmail
+                    ? "Cek Email"
+                    : passwordBaru
+                      ? "New Password"
+                      : "Welcome back"}
+              </Title>
+              <Text ta="center">
+                {lupaPassword
+                  ? "Kami akan membantu Anda mengatur ulang kata sandi Anda dengan cepat"
+                  : cekEmail
+                    ? "Cek email yang anda masukkan tadi, kemudian ikuti instruksi untuk proses pemulihan"
+                    : passwordBaru
+                      ? "Masukkan Password Baru"
+                      : "We're so excited to see you again!"}
+              </Text>
+            </Stack>
+            <form
+              method={lupaPassword ? "GET" : "POST"}
+              action={
+                lupaPassword
+                  ? "?state=cek-email"
+                  : "/api/auth/callback/credentials?callbackUrl=/dashboard"
+              }
+            >
+              {!lupaPassword && <CsrfToken />}
+              <Fieldset variant="unstyled">
+                <Stack gap="sm">
                   <Stack gap="xs">
-                    <PasswordInput
-                      placeholder={
-                        passwordBaru ? "Buat Password Baru" : "Password"
-                      }
-                      size="md"
-                      defaultValue={passwordBaru ? undefined : "password"}
-                      name="password"
-                    />
-                    {passwordBaru && (
+                    {lupaPassword && (
+                      <Card shadow="xs" padding="xs">
+                        <Text size="xs" c="gray">
+                          Mohon masukkan alamat email Anda di bawah ini dan kami
+                          akan mengirimkan instruksi untuk proses pemulihan
+                        </Text>
+                      </Card>
+                    )}
+                    {!cekEmail && !passwordBaru && (
+                      <TextInput
+                        placeholder={lupaPassword ? "Email" : "Username"}
+                        size="md"
+                        defaultValue={lupaPassword ? undefined : "username"}
+                        name={lupaPassword ? undefined : "username"}
+                      />
+                    )}
+                  </Stack>
+                  {!lupaPassword && !cekEmail && (
+                    <Stack gap="xs">
                       <PasswordInput
                         placeholder={
-                          passwordBaru ? "Konfirmasi Password Baru" : "Password"
+                          passwordBaru ? "Buat Password Baru" : "Password"
                         }
                         size="md"
                         defaultValue={passwordBaru ? undefined : "password"}
                         name="password"
                       />
-                    )}
-                    {!passwordBaru && (
-                      <Text>
-                        <Anchor href="?state=lupa-password">
-                          Lupa password
-                        </Anchor>
-                      </Text>
-                    )}
-                  </Stack>
-                )}
-                {lupaPassword ? (
-                  <Button component="a" href="?state=cek-email">
-                    Konfirmasi
-                  </Button>
-                ) : cekEmail ? (
-                  <>
-                    <Text>
-                      Kode tidak terkirim?
-                      <span> </span>
-                      <Anchor href="?state=cek-email">Coba lagi</Anchor>
-                    </Text>
-                    <Text>
-                      Ingin mengganti email?
-                      <span> </span>
-                      <Anchor href="?state=lupa-password">Kembali</Anchor>
-                    </Text>
-                    <Button component="a" href="?state=password-baru">
-                      Selanjutnya
+                      {passwordBaru && (
+                        <PasswordInput
+                          placeholder={
+                            passwordBaru
+                              ? "Konfirmasi Password Baru"
+                              : "Password"
+                          }
+                          size="md"
+                          defaultValue={passwordBaru ? undefined : "password"}
+                          name="password"
+                        />
+                      )}
+                      {!passwordBaru && (
+                        <Text>
+                          <Anchor href="?state=lupa-password">
+                            Lupa password
+                          </Anchor>
+                        </Text>
+                      )}
+                    </Stack>
+                  )}
+                  {lupaPassword ? (
+                    <Button component="a" href="?state=cek-email">
+                      Konfirmasi
                     </Button>
-                  </>
-                ) : passwordBaru ? (
-                  <Button component="a" href="?">
-                    Simpan
-                  </Button>
-                ) : (
-                  <Button type="submit" size="md">
-                    Sign In
-                  </Button>
-                )}
-              </Stack>
-            </Fieldset>
-          </form>
-          {!lupaPassword && !cekEmail && !passwordBaru && (
-            <Text ta="center">
-              Butuh buat akun?
-              <span> </span>
-              <Anchor href="/account/signup">Daftar di sini</Anchor>
-            </Text>
-          )}
-        </Stack>
+                  ) : cekEmail ? (
+                    <>
+                      <Text>
+                        Kode tidak terkirim?
+                        <span> </span>
+                        <Anchor href="?state=cek-email">Coba lagi</Anchor>
+                      </Text>
+                      <Text>
+                        Ingin mengganti email?
+                        <span> </span>
+                        <Anchor href="?state=lupa-password">Kembali</Anchor>
+                      </Text>
+                      <Button component="a" href="?state=password-baru">
+                        Selanjutnya
+                      </Button>
+                    </>
+                  ) : passwordBaru ? (
+                    <Button component="a" href="?">
+                      Simpan
+                    </Button>
+                  ) : (
+                    <Button type="submit" size="md">
+                      Sign In
+                    </Button>
+                  )}
+                </Stack>
+              </Fieldset>
+            </form>
+            {!lupaPassword && !cekEmail && !passwordBaru && (
+              <Text ta="center">
+                Butuh buat akun?
+                <span> </span>
+                <Anchor href="/account/signup">Daftar di sini</Anchor>
+              </Text>
+            )}
+          </Stack>
+        </Card>
       </Box>
     </Container>
   );
